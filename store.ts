@@ -1,16 +1,12 @@
 import { createStore } from "redux";
 
 const initialState = {
-  text: "",
   list: [],
 };
 
 const ADD = "ADD";
-const INPUT = "INPUT";
 
-const add = (item: string) => {
-  initialState.text = "";
-
+export const add = (item: string) => {
   return {
     type: ADD,
     item,
@@ -19,11 +15,6 @@ const add = (item: string) => {
 
 function reducer(state = initialState, action: any) {
   switch (action.type) {
-    case INPUT:
-      return {
-        ...state,
-        text: state.text,
-      };
     case ADD:
       return {
         ...state,
