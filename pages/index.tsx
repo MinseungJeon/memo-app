@@ -6,9 +6,8 @@ import { useDispatch } from "react-redux";
 import { ListItem } from "../src/redux/modules/Todo/types";
 
 const Home: NextPage = () => {
-  const [text, setText] = useState<String>("");
+  const [text, setText] = useState<string>("");
   const [updateTodo, setUpdateTodo] = useState<ListItem>({ id: 0, text: "" });
-  const [edit, setEdit] = useState<Boolean>(false);
 
   const todos = useSelector((state: any) => state.todos);
 
@@ -22,6 +21,7 @@ const Home: NextPage = () => {
 
   const add = () => {
     dispatch({ type: "ADD", text, id: Date.now() });
+    setText("");
   };
 
   const del = (id: number) => {
@@ -41,7 +41,7 @@ const Home: NextPage = () => {
   return (
     <div>
       <h1>MEMO</h1>
-      <input type="text" onChange={(e) => setText(e.target.value)} />
+      <input type="text" onChange={handleChange} value={text} />
       <button onClick={add}>+</button>
 
       <ul>
