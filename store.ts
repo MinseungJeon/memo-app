@@ -1,19 +1,13 @@
 import { createStore } from "redux";
 
-const initialState = {
+const initialState: any = {
   list: [],
 };
 
 const ADD = "ADD";
 
-export const add = (item: string) => {
-  return {
-    type: ADD,
-    item,
-  };
-};
-
 function reducer(state = initialState, action: any) {
+  console.log(action);
   switch (action.type) {
     case ADD:
       return {
